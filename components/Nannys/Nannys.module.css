@@ -21,6 +21,7 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto;
+  margin-top: 64px;
   background: #f03f3b;
   border: none;
 }
