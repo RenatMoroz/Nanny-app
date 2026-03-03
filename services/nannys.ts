@@ -111,7 +111,7 @@ function toArray(payload: NannyListPayload): Nanny[] {
     !Array.isArray(payload) && Array.isArray(payload.docs) ? payload.docs : null,
     !Array.isArray(payload) && Array.isArray(payload.results) ? payload.results : null,
     !Array.isArray(payload) && Array.isArray(payload.data) ? payload.data : null,
-  ].filter((candidate): candidate is unknown[] => Array.isArray(candidate));
+  ].filter(Array.isArray);
 
   for (const candidate of directCandidates) {
     const normalized = candidate

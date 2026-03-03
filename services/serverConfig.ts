@@ -1,5 +1,7 @@
-// import axios from 'axios';
+import axios from 'axios';
 
-// export const nextApi = axios.create({
-//   baseURL: 'http://localhost:3000/api',
-// });
+// Same-origin API base works both locally and on deployed frontend.
+export const nextApi = axios.create({
+  baseURL: '/api',
+  withCredentials: true,
+});

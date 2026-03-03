@@ -2,6 +2,7 @@
 import { getReviewsByNannyId } from '@/services/reviews';
 import css from './ReviewList.module.css';
 import { useQuery } from '@tanstack/react-query';
+import type { Review } from '@/types/reviews';
 interface ReviewListProps {
   id: string;
 }
@@ -10,7 +11,7 @@ const ReviewList = ({ id }: ReviewListProps) => {
     queryKey: ['nannyReviews', id],
     queryFn: () => getReviewsByNannyId(id),
   });
-  const reviews = revieQuery.data || [];
+  const reviews: Review[] = revieQuery.data ?? [];
   return (
     <div className={css['reviewList']}>
       {reviews.map((review) => (
