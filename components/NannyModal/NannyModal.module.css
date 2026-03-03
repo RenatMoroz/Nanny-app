@@ -1,0 +1,168 @@
+.nannyModal {
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background-color: #f3f3f3;
+}
+.teacher-img-block {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nannyImage {
+  border-radius: 15px;
+  width: 44px;
+  height: 44px;
+}
+
+.nanny-block-text {
+  display: flex;
+  flex-direction: column;
+  width: 134px;
+  gap: 4px;
+}
+
+.nanny {
+  font-family: var(--font-helvetica);
+  font-weight: var(--font-weight-medium);
+  font-size: 12px;
+  line-height: 1.33333;
+  color: #8a8a89;
+  margin: 0;
+}
+
+.nanny-name {
+  font-family: var(--font-helvetica);
+  font-weight: var(--font-weight-medium);
+  font-size: 16px;
+  line-height: 1.5;
+  color: #11101c;
+  margin: 0;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 16, 28, 0.62);
+}
+
+.modal {
+  position: relative;
+  width: min(600px, 100%);
+  border-radius: 30px;
+  background: #fbfbfb;
+  padding: 64px;
+  z-index: 1;
+}
+
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: transparent;
+  color: #11101c;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header {
+  margin-bottom: 8px;
+}
+
+.title {
+  margin: 0 0 20px;
+  max-width: 430px;
+  font-family: var(--font-helvetica);
+  font-weight: var(--font-weight-medium);
+  font-size: clamp(32px, 4vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #11101c;
+}
+
+.description {
+  margin: 0;
+  max-width: 470px;
+  font-family: var(--font-helvetica);
+  font-weight: var(--font-weight-regular);
+  font-size: 16px;
+  line-height: 1.25;
+  color: rgba(17, 16, 28, 0.5);
+}
+
+.twoCols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  border: 1px solid rgba(17, 16, 28, 0.1);
+  border-radius: 12px;
+  background: #fff;
+  padding: 16px 18px;
+  font-family: var(--font-helvetica);
+  font-size: 16px;
+  line-height: 1.25;
+  color: #11101c;
+  box-sizing: border-box;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #8a8a89;
+}
+
+.timeWrap {
+  position: relative;
+}
+
+.timeWrap .input {
+  appearance: none;
+  padding-right: 42px;
+}
+
+.timeIcon {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: none;
+  stroke: #11101c;
+  pointer-events: none;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 116px;
+}
+
+.submitButton {
+  margin-top: 8px;
+  width: 100%;
+  border: 0;
+  border-radius: 30px;
+  padding: 16px;
+  background: #f03f3b;
+  color: #fbfbfb;
+  font-family: var(--font-helvetica);
+  font-size: 18px;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.2;
+  cursor: pointer;
+}

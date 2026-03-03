@@ -1,0 +1,124 @@
+.home {
+  padding: 0;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(360px, 1fr) minmax(360px, 1fr);
+  min-height: 736px;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #f03f3b;
+}
+
+.headerWrap {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 3;
+  padding: 20px 56px 0;
+}
+.headerLine {
+  stroke-width: 1px;
+  stroke: rgba(251, 251, 251, 0.4);
+  width: 1376px;
+}
+.homeContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 140px 32px 64px 64px;
+  color: #fbfbfb;
+}
+
+.homeTitle {
+  margin: 0 0 28px;
+  max-width: 520px;
+  font-family: var(--font-helvetica);
+  font-size: clamp(42px, 6vw, 70px);
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.homeDescription {
+  margin: 0 0 64px;
+  max-width: 520px;
+  font-family: var(--font-helvetica);
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.homeLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  border: 1px solid rgba(251, 251, 251, 0.4);
+  border-radius: 999px;
+  padding: 16px 36px;
+  color: #fbfbfb;
+  font-family: var(--font-helvetica);
+  font-size: 20px;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.homeLink svg {
+  fill: currentColor;
+}
+
+.heroImage {
+  position: relative;
+  background-image:
+    linear-gradient(rgba(17, 16, 28, 0.25), rgba(17, 16, 28, 0.25)),
+    url('/Rectangle.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.experienceCard {
+  position: absolute;
+  right: 32px;
+  bottom: 50px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 20px;
+  padding: 20px;
+  background: #fbfbfb;
+}
+
+.checkIcon {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: #f03f3b;
+  color: #fbfbfb;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.svgIcon {
+  fill: white;
+}
+.experienceText p {
+  margin: 0 0 2px;
+  font-family: var(--font-helvetica);
+  font-size: 13px;
+  color: rgba(17, 16, 28, 0.5);
+}
+
+.experienceText span {
+  font-family: var(--font-helvetica);
+  font-size: 24px;
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  color: #11101c;
+}

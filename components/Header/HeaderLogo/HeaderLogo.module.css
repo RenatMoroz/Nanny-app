@@ -1,0 +1,16 @@
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+
+.header-link {
+  font-family: var(--font-helvetica);
+  font-weight: var(--font-weight-bold);
+  font-size: 24px;
+  line-height: 1.16667;
+  letter-spacing: -0.02em;
+  color: #fbfbfb;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
