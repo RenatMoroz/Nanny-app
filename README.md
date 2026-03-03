@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+👶 Nanny Services Pet-Project
 
-## Getting Started
+Nanny Services is a web application for searching and booking nanny services. It allows users to browse nanny cards, add them to favorites, and navigate to a page to schedule an appointment.
 
-First, run the development server:
+📌 Main Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Home page with the site title, company slogan, and a link that redirects to the Nannies page.
+Nannies page with nanny cards, which can be:
+sorted alphabetically, by price, or by rating
+filtered by price and other characteristics
+loaded in additional batches via the Load more button
+Favorites — a private page showing the nannies added to favorites by the user
+Nanny cards display key information: name, age (calculated from date of birth), experience, rating, price, location, characteristics, and description
+Read more button expands additional information and reviews
+Make an appointment button opens a separate page with a form to schedule a meeting
+User authentication is implemented via a custom backend (registration, login, logout, fetching current user)
+Favorites state persists when the page is refreshed
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🧰 Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Frontend: Next.js | TypeScript | CSS Modules | Axios | Zustand | React Hook Form | Yup | React Hot Toast
+Backend: Node.js | Express (deployed on Amazon)
+Database: MongoDB (accessed through backend API)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+💻 Features / My Contribution
 
-## Learn More
+Fully developed the frontend using Next.js and TypeScript
+Implemented dynamic nanny cards with filtering, sorting, and pagination
+Added favorites functionality
+Created a separate page for appointment scheduling
+Connected frontend with custom backend hosted on Amazon
+Ensured persistence of user actions (favorites, forms)
+Implemented responsive design for mobile, tablet, and desktop
 
-To learn more about Next.js, take a look at the following resources:
+🚀 Demo
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[Nanny Services Live Page](https://nanny-app-hazel.vercel.app)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[Backend Nannys-services](https://github.com/RenatMoroz/Nanny-Sevices-backend)
