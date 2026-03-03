@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { Suspense, useEffect, useMemo, useState } from 'react';
 import Header from '@/components/Header/Header';
 import NannysCard from '@/components/Nannys/NannysCard/NannysCard';
 import FiltersForm from '@/components/Nannys/FiltersForm/FiltersForm';
@@ -12,7 +12,7 @@ import css from './page.module.css';
 
 const PER_PAGE = 4;
 
-const Page = () => {
+const FavoritesContent = () => {
   const searchParams = useSearchParams();
   const favoriteIds = useFavoritesStore((state) => state.favorites);
   const [favoriteNannies, setFavoriteNannies] = useState<Nanny[]>([]);
@@ -161,6 +161,14 @@ const Page = () => {
         )}
       </div>
     </section>
+  );
+};
+
+const Page = () => {
+  return (
+    <Suspense fallback={<p className={css.statusText}>Loading favorites...</p>}>
+      <FavoritesContent />
+    </Suspense>
   );
 };
 
