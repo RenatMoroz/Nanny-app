@@ -151,6 +151,11 @@
   cursor: pointer;
 }
 
+.favoriteButton:focus-visible {
+  outline: 2px solid rgba(240, 63, 59, 0.45);
+  border-radius: 8px;
+}
+
 .heartIcon {
   width: 24px;
   height: 24px;
@@ -224,6 +229,12 @@
   margin-bottom: 20px;
 }
 
+.readMoreButton:hover,
+.readMoreButton:focus-visible {
+  color: #e33632;
+  outline: none;
+}
+
 .nannyButton {
   font-family: var(--font-helvetica);
   font-weight: var(--font-weight-medium);
@@ -252,4 +263,5 @@
 .nannyButton:hover,
 .nannyButton:focus-visible {
   background: #e33632;
+  outline: none;
 }

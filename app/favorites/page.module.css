@@ -12,6 +12,10 @@
   padding: 40px 96px;
   display: flex;
   flex-direction: column;
+  max-width: 1376px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .contentFilterBlock {

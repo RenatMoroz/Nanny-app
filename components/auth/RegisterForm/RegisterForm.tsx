@@ -64,21 +64,22 @@ const RegisterForm = () => {
             type={showPassword ? 'text' : 'password'}
             required
           />
-          <svg
-            key={showPassword ? 'eye-on' : 'eye-off'}
-            width={20}
-            height={20}
+          <button
+            type="button"
             className={css['form-register-svg']}
             onClick={handleTogglePassword}
+            aria-label={showPassword ? 'Hide password' : 'Show password'}
           >
-            <use
-              href={
-                showPassword
-                  ? '/icons-sprite.svg#icon-eye-on'
-                  : '/icons-sprite.svg#icon-eye-off'
-              }
-            ></use>
-          </svg>
+            <svg key={showPassword ? 'eye-on' : 'eye-off'} width={20} height={20}>
+              <use
+                href={
+                  showPassword
+                    ? '/icons-sprite.svg#icon-eye-on'
+                    : '/icons-sprite.svg#icon-eye-off'
+                }
+              ></use>
+            </svg>
+          </button>
         </div>
         <button type="submit" className={css['submit-btn']}>
           Sign Up

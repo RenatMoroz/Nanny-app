@@ -24,9 +24,15 @@
   margin-top: 64px;
   background: #f03f3b;
   border: none;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
-.btn-load-more:hover {
-  background: #fbfbfb;
-  color: #f03f3b;
+.btn-load-more:hover,
+.btn-load-more:focus-visible {
+  background: #e33632;
+  color: #fbfbfb;
+  outline: none;
 }

@@ -3,6 +3,7 @@ import type {
   GetNannysResponse,
   Nanny,
 } from '@/types/nannys';
+import axios from 'axios';
 import { nextApi } from './serverConfig';
 
 type NannyListPayload =
@@ -132,11 +133,63 @@ function toArray(payload: NannyListPayload): Nanny[] {
     .filter((item): item is Nanny => Boolean(item));
 }
 
+const normalizeNannyOrThrow = (payload: unknown): Nanny => {
+  const nanny = normalizeNanny(payload);
+  if (!nanny) {
+    throw new Error('Invalid nanny payload');
+  }
+  return nanny;
+};
+
+const toRequestParams = (
+  params: GetAllNannysParams = {}
+): Record<string, string | number> => {
+  const { preset, ...rest } = params;
+  const prepared: Record<string, string | number> = {};
+
+  for (const [key, value] of Object.entries(rest)) {
+    if (value !== undefined && value !== null) {
+      prepared[key] = value as string | number;
+    }
+  }
+
+  switch (preset) {
+    case 'a-z':
+      prepared.sortBy = 'name';
+      prepared.sortOrder = 'asc';
+      break;
+    case 'z-a':
+      prepared.sortBy = 'name';
+      prepared.sortOrder = 'desc';
+      break;
+    case 'less-than-10':
+      prepared.maxPrice = 10;
+      break;
+    case 'greater-than-10':
+      prepared.minPrice = 10;
+      break;
+    case 'popular':
+      prepared.sortBy = 'rating';
+      prepared.sortOrder = 'desc';
+      break;
+    case 'not-popular':
+      prepared.sortBy = 'rating';
+      prepared.sortOrder = 'asc';
+      break;
+    case 'show-all':
+    default:
+      break;
+  }
+
+  return prepared;
+};
+
 export async function getAllNannys(
   params: GetAllNannysParams = {}
 ): Promise<GetNannysResponse> {
-  const response = await nextApi.get<NannyListPayload>('/nanny', {
-    params,
+  const requestParams = toRequestParams(params);
+  const response = await nextApi.get<NannyListPayload>('/nannys', {
+    params: requestParams,
   });
 
   const payload = response.data;
@@ -167,8 +220,27 @@ export async function getAllNannys(
 
 export async function getNannyById(id: string): Promise<Nanny> {
   try {
-    const response = await nextApi.get<Nanny>(`/nannys/${id}`);
-    return response.data;
+    if (typeof window === 'undefined' && process.env.NEXT_PUBLIC_API_URL) {
+      const baseURL = process.env.NEXT_PUBLIC_API_URL;
+
+      try {
+        const response = await axios.get(`${baseURL}/nannys/${id}`);
+        return normalizeNannyOrThrow(response.data);
+      } catch (error) {
+        if (
+          (error as { response?: { status?: number } })?.response?.status !==
+          404
+        ) {
+          throw error;
+        }
+      }
+
+      const response = await axios.get(`${baseURL}/nanny/${id}`);
+      return normalizeNannyOrThrow(response.data);
+    }
+
+    const response = await nextApi.get(`/nannys/${id}`);
+    return normalizeNannyOrThrow(response.data);
   } catch (error) {
     console.error('Error fetching nanny by ID:', error);
     throw error;

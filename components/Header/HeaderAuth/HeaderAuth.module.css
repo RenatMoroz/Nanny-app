@@ -51,13 +51,17 @@
 }
 
 .header-auth-register {
-  border-radius: 30px;
-  padding: 14px 32px;
-  background: #f03f3b;
+  color: #fbfbfb;
+  font-family: var(--font-helvetica);
+  font-weight: var(--font-weight-medium);
+  border: 1px solid #fbfbfb66;
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-size: 16px;
+  line-height: 1.25;
+  text-decoration: none;
 }
-.header-auth-register:hover {
-  background: #fbfbfb;
-}
+
 .header-auth-link-login {
   font-family: var(--font-helvetica);
   font-weight: var(--font-weight-medium);
@@ -67,10 +71,12 @@
   color: #fbfbfb;
   text-decoration: none;
 }
-.header-auth-link:hover {
-  color: #f03f3b;
+.header-auth-register:hover {
+  background: rgba(251, 251, 251, 0.16);
 }
-
+.header-auth-login:hover {
+  background: rgba(251, 251, 251, 0.16);
+}
 .logoutButton {
   border-radius: 30px;
   border: 1px solid rgba(251, 251, 251, 0.4);
